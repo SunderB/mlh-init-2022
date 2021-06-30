@@ -41,5 +41,7 @@
   width: min-content;
   white-space: nowrap;
   transform-origin: center;
-  transform: rotate(-45deg); /* Equal to rotateZ(45deg) */
+  margin-left: auto;
+  margin-right: auto;
+  transform: translate(150px, -30px) rotate(-15deg);
 }
