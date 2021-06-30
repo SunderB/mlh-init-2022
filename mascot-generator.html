@@ -1,0 +1,141 @@
+---
+title: "2022 Season Mascot Generator"
+layout: default
+---
+
+<script type="text/javascript">
+function sleep(ms) {
+   return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+const names = [
+  "Freddie",
+  "Fiona",
+  "Frank",
+  "Franklin",
+  "Fred",
+  "Flora",
+  "Fauna",
+  "Flippy",
+  "Fabius",
+  "Fabrice",
+  "Fabian",
+  "Francis",
+  "Ffion", // foxglove in Welsh
+  "Febronia",
+  "Fester",
+  "Fido",
+  "Fidel",
+  "Fidan",
+  "Fernando",
+  "Fergie"
+]
+
+const tech_words = [
+"File allocation table",
+"File",
+"Filesharing",
+"Filesystem",
+"Firewall",
+"Folder",
+"Footnote",
+"Format",
+// "FreeBSD",
+"Freeware",
+"FTP",
+// "Facebook"
+"Floppy",
+"Front-end",
+"Flask",
+"FOSS",
+"Function",
+"Fast"
+]
+
+const animals = [
+  "Falcon",
+  "Ferret",
+  "Finch",
+  "Fish",
+  "Fisher",
+  "Flamingo",
+  "Fly",
+  "Flycatcher",
+  "Fox",
+  "Frog"
+]
+
+const loading_text = [
+  "Fetching TNR's database...",
+  "Consulting with the Blahaj oracle...",
+  "Shaking my lucky 8 ball 🎱 ...",
+  "Searching Stack Overflow...",
+  "Hacking MLH... (not really lol)",
+  "Asking Jeeves...",
+  "Asking Siri...",
+  "Asking Cortana...",
+  "Asking Alexa...",
+  "Phoning a friend ☎️...",
+  "Checking Wikipedia...",
+  "Hopping into the DeLorean ⏲️...",
+  "Going on a quick trip through the TARDIS 🎇 ...",
+  "Gathering memes...",
+  "Searching through the speculation category in the local library...",
+  "Using <s>random number generator</s> machine learning..."
+]
+
+function getRandomFromArray(array) {
+  var max = array.length;
+  var index = Math.floor(Math.random() * max);
+  return array[index];
+}
+
+async function generate_mascot() {
+  var output_el = document.getElementById("output");
+  var loading_text_el = document.getElementById("loading_text");
+
+  output_el.setAttribute("hidden", true);
+  loading_text_el.innerHTML = getRandomFromArray(loading_text);
+  loading_text_el.removeAttribute("hidden");
+
+  await sleep(1000);
+
+  var name_el = document.getElementById("name");
+  var tech_word_el = document.getElementById("tech_word");
+  var animal_el = document.getElementById("animal");
+
+  var name, tech_word, animal;
+
+  if (Math.random() < 0.05) {
+    name = "🦈 Flahaj"
+    tech_word = getRandomFromArray(tech_words);
+    animal = "Fish 🦈";
+  } else {
+    name = getRandomFromArray(names);
+    tech_word = getRandomFromArray(tech_words);
+    animal = getRandomFromArray(animals);
+  }
+
+  console.log(`${name} the ${tech_word} ${animal}`);
+
+  name_el.innerText = name;
+  tech_word_el.innerText = tech_word;
+  animal_el.innerText = animal;
+
+  loading_text_el.setAttribute("hidden", true);
+  output_el.removeAttribute("hidden");
+}
+
+</script>
+<s></s>
+<section id="generator">
+  <h2>Mascot Generator 2022</h2>
+  <p id="splash-text">Less than 1% accurate!</p>
+  <div id="output_box">
+    <p id="loading_text" hidden="true"></p>
+    <p id="output">
+      <span id="name">~~~~ ? ~~~~</span> the <span id="tech_word">~~~~ ? ~~~~</span> <span id="animal">~~~~ ? ~~~~</span>
+    </p>
+  </div>
+  <button onclick="generate_mascot()">Generate Mascot</button>
+</section>

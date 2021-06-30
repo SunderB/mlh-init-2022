@@ -1,0 +1,45 @@
+* {
+  font-family: sans-serif;
+}
+
+#generator {
+  border-radius: 8px;
+  background-color: #eeeeee;
+  padding: 8px;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#generator h2 {
+  text-align: center;
+}
+
+#generator #output_box {
+  text-align: center;
+  background-color: #222222;
+  border-radius: 8px;
+}
+
+#generator #output_box * {
+  font-family: monospace;
+  font-size: 14pt;
+  color: white;
+}
+
+#generator #output_box #name { color: #ff6666; font-weight: bold; }
+#generator #output_box #tech_word { color: #66ff66; font-weight: bold; }
+#generator #output_box #animal { color: #49c3ff; font-weight: bold; }
+
+#output_box #loading_text {
+  color: lightgrey;
+  font-style: italic;
+}
+
+#splash-text {
+  font-family: cursive;
+  width: min-content;
+  white-space: nowrap;
+  transform-origin: center;
+  transform: rotate(-45deg); /* Equal to rotateZ(45deg) */
+}
